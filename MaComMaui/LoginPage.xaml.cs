@@ -1,6 +1,4 @@
-﻿using Xamarin.KotlinX.Coroutines.Channels;
-
-namespace MaComMaui;
+﻿namespace MaComMaui;
 
 public partial class LoginPage : ContentPage
 {
