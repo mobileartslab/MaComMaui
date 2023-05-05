@@ -43,7 +43,7 @@
     <viewmodel:HomeViewModel />
   </ContentPage.BindingContext>
   <ContentPage.Content>
-    <Grid BackgroundColor="{StaticResource PrimaryColor}" RowDefinitions="220, *" >
+    <Grid BackgroundColor="{StaticResource Primary}" RowDefinitions="220, *" >
       <Grid RowDefinitions="Auto, *">
         <Label Text="Chat with your friends" Style="{StaticResource TitleTextStyle}" />
         <Grid Grid.Row="1" ColumnDefinitions="Auto, *" Style="{StaticResource SuggestedContainerStyle}"> 

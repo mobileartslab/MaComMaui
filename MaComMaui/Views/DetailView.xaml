@@ -100,7 +100,7 @@
         </Style>
                 
         <Style x:Key="SearchButtonEllipseStyle" TargetType="BoxView">
-          <Setter Property="Color" Value="{StaticResource PrimaryColor}" />
+          <Setter Property="Color" Value="{StaticResource Primary}" />
           <Setter Property="CornerRadius" Value="32" />
           <Setter Property="HeightRequest" Value="32" />
           <Setter Property="WidthRequest" Value="32" />
@@ -121,7 +121,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-      <Grid BackgroundColor="{StaticResource PrimaryColor}" RowDefinitions="220, *">
+      <Grid BackgroundColor="{StaticResource Primary}" RowDefinitions="220, *">
         <Grid Grid.Row="0" RowDefinitions="Auto, 150">
           <Grid ColumnDefinitions="Auto, *" Style="{StaticResource NavigationButtonContainerStyle}">
             <Label Text="Back" Style="{StaticResource NavigationButtonStyle}">
