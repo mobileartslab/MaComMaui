@@ -45,7 +45,8 @@ namespace MaComMaui.ViewModels
 
         void OnNavigate(object parameter)
         {
-            NavigationService.Instance.NavigateToAsync<DetailViewModel>(parameter);
+            Shell.Current.GoToAsync("detailView");
+            //NavigationService.Instance.NavigateToAsync<DetailViewModel>(parameter);
         }
     }
 }

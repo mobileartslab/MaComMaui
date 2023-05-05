@@ -18,6 +18,7 @@ public partial class AppShell : Shell
   {
     Routes.Add("mainPage", typeof(MainPage));
     Routes.Add("homeView", typeof(HomeView));
+    Routes.Add("detailView", typeof(DetailView));
 
     foreach (var item in Routes)
     {

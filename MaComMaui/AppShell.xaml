@@ -22,5 +22,10 @@
         ContentTemplate="{DataTemplate views:HomeView}"
         Route="HomeView" />
 
+        <ShellContent
+        Title="Detail View"
+        ContentTemplate="{DataTemplate views:DetailView}"
+        Route="DetailView" />
+
 </Shell>
 
