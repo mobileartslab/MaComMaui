@@ -1,4 +1,6 @@
-﻿namespace MaComMaui;
+﻿using MaComMaui.Views;
+
+namespace MaComMaui;
 
 public partial class AppShell : Shell
 {
@@ -15,6 +17,7 @@ public partial class AppShell : Shell
   void RegisterRoutes()
   {
     Routes.Add("mainPage", typeof(MainPage));
+    Routes.Add("homeView", typeof(HomeView));
 
     foreach (var item in Routes)
     {
