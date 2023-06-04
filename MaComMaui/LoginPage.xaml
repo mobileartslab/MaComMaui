@@ -13,6 +13,7 @@
         TextColor="#000"
         x:Name="txtUserName"
         PlaceholderColor="#154360"
+        Keyboard="Email"
       >
         <Entry.Behaviors>
           <toolkit:MultiValidationBehavior 
