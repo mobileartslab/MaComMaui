@@ -39,7 +39,7 @@ public partial class LoginPage : ContentPage
     {
       foreach (var error in emailValidator.Errors)
       {
-        OnError?.Invoke(sender, error.ToString());
+        await DisplayAlert("Error", error.ToString(), "OK");
       }
 
       return;
@@ -47,7 +47,7 @@ public partial class LoginPage : ContentPage
 
     if (passwordValidator.IsNotValid)
     {
-      OnError?.Invoke(sender, "Password is required.");
+      await DisplayAlert("Error", "Password is required", "OK");
       return;
     }
 
