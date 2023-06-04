@@ -45,49 +45,21 @@ public partial class LoginPage : ContentPage
 
     if (response != null) {
       var authStatus = response.user.authStatus;
-      if (authStatus == 1)
+      if (authStatus == Constants.STATUS_AUTHENTICATED)
       {
         await Shell.Current.GoToAsync("homeView");
       }
-      else if (authStatus == 0) {
+      else if (authStatus == Constants.STATUS_NOT_FOUND) {
         submitError.Text = "User not found";
       } 
-      else if (authStatus == -1) {
+      else if (authStatus == Constants.STATUS_INVALID_PASSWORD) {
         submitError.Text = "Invalid login";
       } 
     }
     else {
       submitError.Text = "Server Error";
+      Console.WriteLine("Server Error");
     }
 
   }
 }
-
-/*
-  const validate = () => {
-    let isValid = true
-    resetErrors()
-
-    if (!fields.email) {
-      isValid = false
-      errors.email = 'Email Required'
-    }
-
-    if (fields.email && !ValidationConstants.EMAIL.test(fields.email)) {
-      isValid = false
-      errors.email = 'Please enter a valid email'
-    }
-
-    if (!fields.password) {
-      isValid = false
-      errors.password = 'Password Required'
-    }
-
-    if (!isValid) {
-      const newErrors = errors
-      setErrors({ ...errors, ...newErrors })
-    }
-
-    return isValid
-  }
-*/
