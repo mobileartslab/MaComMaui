@@ -8,7 +8,7 @@ namespace MaComMaui.Services
 {
 	public class ApiService
 	{
-		public ApiService()
+		public ApiService() 
 		{
 		}
 
@@ -26,10 +26,7 @@ namespace MaComMaui.Services
       var response = await httpClient.PostAsync(AppSettings.ApiUrl + "/public/login", content);
       if (!response.IsSuccessStatusCode) return false;
       var jsonResult = await response.Content.ReadAsStringAsync();
-      var result = JsonConvert.DeserializeObject<Login>(jsonResult);
-      // Preferences.Set("accesstoken", result.AccessToken);
-      Preferences.Set("username", result.username);
-      Preferences.Set("password", result.password);
+      var result = JsonConvert.DeserializeObject<LoginResult>(jsonResult);
       return true;
     }
   }

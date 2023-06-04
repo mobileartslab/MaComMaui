@@ -13,55 +13,72 @@ public partial class LoginPage : ContentPage
 
   public string Password
   {
-    get
-    {
-      return password.Text;
-    }
-    set
-    {
-      password.Text = value;
-    }
+    get { return password.Text; }
+    set { password.Text = value; }
   }
 
   public string Username
   {
-    get
-    {
-      return username.Text;
-    }
-    set
-    {
-      username.Text = value;
-    }
+    get { return username.Text; }
+    set { username.Text = value; }
   }
 
-  async void Button_Clicked(System.Object sender, System.EventArgs e)
-  {
-    if (emailValidator.IsNotValid)
-    {
-      foreach (var error in emailValidator.Errors)
-      {
-        await DisplayAlert("Error", error.ToString(), "OK");
-      }
 
+
+  async void Button_Clicked(System.Object sender, System.EventArgs e) {
+    usernameError.Text = "";
+    passwordError.Text = "";
+    submitError.Text = "";
+
+
+    if (emailValidator.IsNotValid) {
+      usernameError.Text = emailValidator.Errors[0].ToString();
       return;
     }
 
-    if (passwordValidator.IsNotValid)
-    {
-      await DisplayAlert("Error", "Password is required", "OK");
+    if (passwordValidator.IsNotValid) {
+      passwordError.Text = "Password is required";
       return;
     }
 
     var response = await ApiService.Login(Username, Password);
-    if (response)
-    {
+
+    if (response) {
+      var authStatus = Preferences.Get("authStatus", "");
       await Shell.Current.GoToAsync("homeView");
     }
-    else
-    {
-      await DisplayAlert("", "Oops something went wrong.", "Cancel");
+    else {
+      submitError.Text = "Server Error";
     }
 
   }
 }
+
+/*
+  const validate = () => {
+    let isValid = true
+    resetErrors()
+
+    if (!fields.email) {
+      isValid = false
+      errors.email = 'Email Required'
+    }
+
+    if (fields.email && !ValidationConstants.EMAIL.test(fields.email)) {
+      isValid = false
+      errors.email = 'Please enter a valid email'
+    }
+
+    if (!fields.password) {
+      isValid = false
+      errors.password = 'Password Required'
+    }
+
+    if (!isValid) {
+      const newErrors = errors
+      setErrors({ ...errors, ...newErrors })
+    }
+
+    return isValid
+  }
+*/
