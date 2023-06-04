@@ -9,6 +9,30 @@ public partial class LoginPage : ContentPage
 		InitializeComponent();
 	}
 
+  public string Password
+  {
+    get
+    {
+      return password.Text;
+    }
+    set
+    {
+      password.Text = value;
+    }
+  }
+
+  public string Username
+  {
+    get
+    {
+      return username.Text;
+    }
+    set
+    {
+      username.Text = value;
+    }
+  }
+
   async void Button_Clicked(System.Object sender, System.EventArgs e)
   {
     if (emailValidator.IsNotValid)
@@ -21,9 +45,9 @@ public partial class LoginPage : ContentPage
       return;
     }
 
-    if (nameValidator.IsNotValid)
+    if (passwordValidator.IsNotValid)
     {
-      OnError?.Invoke(sender, "Name is required.");
+      OnError?.Invoke(sender, "Password is required.");
       return;
     }
 

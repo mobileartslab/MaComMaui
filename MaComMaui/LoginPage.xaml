@@ -11,7 +11,7 @@
       <Entry 
 				Placeholder="Username"
         TextColor="#000"
-        x:Name="txtUserName"
+        x:Name="username"
         PlaceholderColor="#154360"
         Keyboard="Email"
       >
@@ -34,13 +34,13 @@
       <Entry 
 				IsPassword="True"
         TextColor="#000"
-        x:Name="txtPassword"
+        x:Name="password"
         Placeholder="Password"
         PlaceholderColor="#154360"
 			>
        <Entry.Behaviors>
           <toolkit:TextValidationBehavior
-            x:Name="nameValidator"                            
+            x:Name="passwordValidator"                            
             Flags="ValidateOnAttaching,ValidateOnValueChanged"
             MinimumLength="1"
           />
