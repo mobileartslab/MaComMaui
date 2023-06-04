@@ -1,4 +1,6 @@
-﻿namespace MaComMaui;
+﻿using MaComMaui.Services;
+
+namespace MaComMaui;
 
 public partial class LoginPage : ContentPage
 {
@@ -51,6 +53,15 @@ public partial class LoginPage : ContentPage
       return;
     }
 
-    await Shell.Current.GoToAsync("homeView");
+    var response = await ApiService.Login(Username, Password);
+    if (response)
+    {
+      await Shell.Current.GoToAsync("homeView");
+    }
+    else
+    {
+      await DisplayAlert("", "Oops something went wrong.", "Cancel");
+    }
+
   }
 }

@@ -16,8 +16,8 @@ namespace MaComMaui.Services
     {
       var login = new Login()
       {
-        Email = email,
-        Password = password
+        username = email,
+        password = password
       };
 
       var httpClient = new HttpClient();
@@ -28,8 +28,8 @@ namespace MaComMaui.Services
       var jsonResult = await response.Content.ReadAsStringAsync();
       var result = JsonConvert.DeserializeObject<Login>(jsonResult);
       // Preferences.Set("accesstoken", result.AccessToken);
-      Preferences.Set("username", result.Email);
-      Preferences.Set("password", result.Password);
+      Preferences.Set("username", result.username);
+      Preferences.Set("password", result.password);
       return true;
     }
   }
