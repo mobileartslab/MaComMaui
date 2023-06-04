@@ -12,7 +12,7 @@ namespace MaComMaui.Services
 		{
 		}
 
-    public static async Task<bool> Login(string email, string password)
+    public static async Task<LoginResult> Login(string email, string password)
     {
       var login = new Login()
       {
@@ -24,10 +24,10 @@ namespace MaComMaui.Services
       var json = JsonConvert.SerializeObject(login);
       var content = new StringContent(json, Encoding.UTF8, "application/json");
       var response = await httpClient.PostAsync(AppSettings.ApiUrl + "/public/login", content);
-      if (!response.IsSuccessStatusCode) return false;
+      if (!response.IsSuccessStatusCode) return null;
       var jsonResult = await response.Content.ReadAsStringAsync();
       var result = JsonConvert.DeserializeObject<LoginResult>(jsonResult);
-      return true;
+      return result;
     }
   }
 }

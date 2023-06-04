@@ -11,7 +11,7 @@ namespace MaComMaui.Models
 
     public string error { get; set; }
     [JsonProperty("result")]
-    public object User { get; set; }
+    public LoginUser user { get; set; }
   }
 }
 

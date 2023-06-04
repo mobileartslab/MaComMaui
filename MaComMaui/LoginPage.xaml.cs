@@ -43,9 +43,18 @@ public partial class LoginPage : ContentPage
 
     var response = await ApiService.Login(Username, Password);
 
-    if (response) {
-      var authStatus = Preferences.Get("authStatus", "");
-      await Shell.Current.GoToAsync("homeView");
+    if (response != null) {
+      var authStatus = response.user.authStatus;
+      if (authStatus == 1)
+      {
+        await Shell.Current.GoToAsync("homeView");
+      }
+      else if (authStatus == 0) {
+        submitError.Text = "User not found";
+      } 
+      else if (authStatus == -1) {
+        submitError.Text = "Invalid login";
+      } 
     }
     else {
       submitError.Text = "Server Error";
