@@ -3,8 +3,8 @@ Mobile Arts Lab Communicator - .NET Maui
 
 
 
-![alt text](http://g.recordit.co/I5WVF1y48w.gif "Application in action - iOS")
+![alt text](http://g.recordit.co/5SUa6UqwZc.gif "Application in action - iOS")
 
-![alt text](http://g.recordit.co/Rzh6qkGRMp.gif "Application in action - Android")
+![alt text](http://g.recordit.co/seEVSrpLVG.gif "Application in action - Android")
 
 
